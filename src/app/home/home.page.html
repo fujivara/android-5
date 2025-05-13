@@ -1,20 +1,33 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Accelerometer Data
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="ion-padding">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Accelerometer Values</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label>X-axis (m/s²)</ion-label>
+            <ion-note slot="end">{{ (acceleration$ | async)?.x?.toFixed(2) || '0.00' }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Y-axis (m/s²)</ion-label>
+            <ion-note slot="end">{{ (acceleration$ | async)?.y?.toFixed(2) || '0.00' }}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Z-axis (m/s²)</ion-label>
+            <ion-note slot="end">{{ (acceleration$ | async)?.z?.toFixed(2) || '0.00' }}</ion-note>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
